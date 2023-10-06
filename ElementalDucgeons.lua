@@ -33,6 +33,41 @@ local Toggle_Potion = Tabs.Main:AddToggle("auto_use_potion", { Title = "AUTO USE
 local Toggle_Retry = Tabs.Main:AddToggle("auto_retry", { Title = "AUTO Retry", Default = false })
 local Toggle_Collect = Tabs.Main:AddToggle("auto_collect", { Title = "AUTO COLLECT ITEM", Default = false})
 
+Tabs.Main:AddButton({
+    Title = "Button",
+    Description = "Very important button",
+    Callback = function()
+        Window:Dialog({
+            Title = "Title",
+            Content = "This is a dialog",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local UserInputService = game:GetService("UserInputService")
+
+                        local function onKeyPress(input)
+                            if input.KeyCode == Enum.KeyCode.E then
+                                -- กระทำที่ต้องการเมื่อปุ่ม "E" ถูกกด
+                                print("กดปุ่ม E")
+                            end
+                        end
+
+                        UserInputService.InputBegan:Connect(onKeyPress)
+                                                
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
 Toggle_Box:OnChanged(function()
     auto_collect_box = Options.auto_collect_box.Value
 end)
@@ -78,14 +113,31 @@ spawn(function()
         if auto_attack == true then
             pcall(function()
                 local args = {
+                local closestModel = nil
+                local closestDistance = math.huge  -- ตั้งค่าระยะห่างเริ่มต้นเป็นค่าสูงสุด
+                
+                for i1, v1 in pairs(workspace.Mobs:GetChildren()) do
+                    if v1.ClassName == "Model" then
+                        if v1.Humanoid.Health > 0 then
+                            local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v1.HumanoidRootPart.Position).Magnitude
+                            if distance < closestDistance then
+                                closestDistance = distance
+                                closestModel = v1
+                            end
+                        end
+                    end
+                end
+
+                if closestModel then
                     [1] = {
                         ["Direction"] = Vector3.new(0, 0, 0),
                         ["Origin"] = Vector3.new(0, 0, 0),
-                        ["Position"] = Vector3.new(0, 0, 0)
+                        ["Position"] = closestModel.HumanoidRootPart.Position
                     }
                 }
     
                 game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WeaponService"):WaitForChild("RF"):WaitForChild("UseSword"):InvokeServer(unpack(args))
+                end
             end)
         end
     end
