@@ -112,7 +112,6 @@ spawn(function()
     while wait() do
         if auto_attack == true then
             pcall(function()
-                local args = {
                 local closestModel = nil
                 local closestDistance = math.huge  -- ตั้งค่าระยะห่างเริ่มต้นเป็นค่าสูงสุด
                 
@@ -129,6 +128,7 @@ spawn(function()
                 end
 
                 if closestModel then
+                    local args = {
                     [1] = {
                         ["Direction"] = Vector3.new(0, 0, 0),
                         ["Origin"] = Vector3.new(0, 0, 0),
