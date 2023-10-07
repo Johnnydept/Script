@@ -27,46 +27,11 @@ Fluent:Notify({
 })
 
 local Toggle_Box = Tabs.Main:AddToggle("auto_collect_box", { Title = "Auto Collect GEM!", Default = false })
-local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "Test", Default = false })
-local Toggle_Attack = Tabs.Main:AddToggle("auto_attack", { Title = "AUTO ATTACK", Default = false })
+local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
 local Toggle_Potion = Tabs.Main:AddToggle("auto_use_potion", { Title = "AUTO USE POTIONS", Default = false })
 local Toggle_Retry = Tabs.Main:AddToggle("auto_retry", { Title = "AUTO Retry", Default = false })
 local Toggle_Collect = Tabs.Main:AddToggle("auto_collect", { Title = "AUTO COLLECT ITEM", Default = false})
 
-Tabs.Main:AddButton({
-    Title = "Button",
-    Description = "Very important button",
-    Callback = function()
-        Window:Dialog({
-            Title = "Title",
-            Content = "This is a dialog",
-            Buttons = {
-                {
-                    Title = "Confirm",
-                    Callback = function()
-                        local UserInputService = game:GetService("UserInputService")
-
-                        local function onKeyPress(input)
-                            if input.KeyCode == Enum.KeyCode.E then
-                                -- กระทำที่ต้องการเมื่อปุ่ม "E" ถูกกด
-                                print("กดปุ่ม E")
-                            end
-                        end
-
-                        UserInputService.InputBegan:Connect(onKeyPress)
-                                                
-                    end
-                },
-                {
-                    Title = "Cancel",
-                    Callback = function()
-                        print("Cancelled the dialog.")
-                    end
-                }
-            }
-        })
-    end
-})
 
 Toggle_Box:OnChanged(function()
     auto_collect_box = Options.auto_collect_box.Value
@@ -74,10 +39,6 @@ end)
 
 Toggle_Mon:OnChanged(function()
     auto_mon = Options.auto_mon.Value
-end)
-
-Toggle_Attack:OnChanged(function()
-    auto_attack = Options.auto_attack.Value
 end)
 
 Toggle_Potion:OnChanged(function()
@@ -110,65 +71,37 @@ end)
 
 spawn(function()
     while wait() do
-        if auto_attack == true then
-            pcall(function()
-                local closestModel = nil
-                local closestDistance = math.huge  -- ตั้งค่าระยะห่างเริ่มต้นเป็นค่าสูงสุด
-                
-                for i1, v1 in pairs(workspace.Mobs:GetChildren()) do
-                    if v1.ClassName == "Model" then
-                        if v1.Humanoid.Health > 0 then
-                            local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v1.HumanoidRootPart.Position).Magnitude
-                            if distance < closestDistance then
-                                closestDistance = distance
-                                closestModel = v1
-                            end
-                        end
-                    end
-                end
-
-                if closestModel then
-                    local args = {
-                    [1] = {
-                        ["Direction"] = Vector3.new(0, 0, 0),
-                        ["Origin"] = Vector3.new(0, 0, 0),
-                        ["Position"] = closestModel.HumanoidRootPart.Position
-                    }
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WeaponService"):WaitForChild("RF"):WaitForChild("UseSword"):InvokeServer(unpack(args))
-                end
-            end)
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
         if auto_mon == true then
             pcall(function()
-                local closestModel = nil
-                local closestDistance = math.huge  -- ตั้งค่าระยะห่างเริ่มต้นเป็นค่าสูงสุด
-                
-                for i1, v1 in pairs(workspace.Mobs:GetChildren()) do
-                    if v1.ClassName == "Model" then
-                        if v1.Humanoid.Health > 0 then
-                            local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v1.HumanoidRootPart.Position).Magnitude
-                            if distance < closestDistance then
-                                closestDistance = distance
-                                closestModel = v1
+                for i, v in pairs(workspace.Mobs:GetChildren()) do
+                    if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        repeat task.wait()
+                            local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 3, 0)  -- อาจจะต้องปรับตำแหน่งให้เหมาะสม
+                            if game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetCFrame
                             end
-                        end
+                        until not auto_mon or not v or not v:FindFirstChild("Humanoid") or v.Humanoid.Health <= 0
                     end
-                end
-
-                if closestModel then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(closestModel.HumanoidRootPart.Position)
                 end
             end)
         end
     end
 end)
+
+
+
+
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+     pcall(function()
+        if auto_mon == true then
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            end
+        end)
+    end) 
+ end)
+
 
 spawn(function()
     while wait() do
@@ -211,7 +144,6 @@ end)
 
 Options.auto_collect_box:SetValue(false)
 Options.auto_mon:SetValue(false)
-Options.auto_attack:SetValue(false)
 Options.auto_use_potion:SetValue(false)
 Options.auto_retry:SetValue(false)
 Options.auto_collect:SetValue(false)
