@@ -73,20 +73,36 @@ spawn(function()
     while wait() do
         if auto_mon == true then
             pcall(function()
+                local closestModel = nil
+                local closestDistance = math.huge
+                
                 for i, v in pairs(workspace.Mobs:GetChildren()) do
                     if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                        repeat task.wait()
-                            local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 3, 0)  -- อาจจะต้องปรับตำแหน่งให้เหมาะสม
-                            if game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetCFrame
-                            end
-                        until not auto_mon or not v or not v:FindFirstChild("Humanoid") or v.Humanoid.Health <= 0
+                        local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude
+                        if distance < closestDistance then
+                            closestDistance = distance
+                            closestModel = v
+                        end
                     end
+                end
+
+                if closestModel and closestModel.Humanoid.Health > 0 then
+                    repeat task.wait()
+                        local targetPosition = closestModel.HumanoidRootPart.Position + Vector3.new(0, 3, 0)
+                        if auto_mon and closestModel and closestModel:FindFirstChild("Humanoid") and closestModel.Humanoid.Health > 0 then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+                        else
+                            break
+                        end
+                    until false
+                else
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
                 end
             end)
         end
     end
 end)
+
 
 
 
