@@ -88,9 +88,9 @@ spawn(function()
 
                 if closestModel and closestModel.Humanoid.Health > 0 then
                     repeat task.wait()
-                        local targetPosition = closestModel.HumanoidRootPart.Position + Vector3.new(0, 3, 0)
+                        local targetPosition = closestModel.HumanoidRootPart.Position + Vector3.new(0, 3, 0) * CFrame.Angles(math.rad(-90), 0, 0)  -- ปรับการหมุนที่นี่ (math.rad(-90) ใช้ในการหมุนตัวละคร 90 องศาแนวตั้ง)
                         if auto_mon and closestModel and closestModel:FindFirstChild("Humanoid") and closestModel.Humanoid.Health > 0 then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetPosition
                         else
                             break
                         end
@@ -102,6 +102,7 @@ spawn(function()
         end
     end
 end)
+
 
 
 
