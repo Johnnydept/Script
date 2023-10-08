@@ -87,17 +87,17 @@ spawn(function()
                 end
 
                 if closestModel and closestModel.Humanoid.Health > 0 then
-                    repeat task.wait()
-                        local targetPosition = closestModel.HumanoidRootPart.Position + Vector3.new(0, 3, 0)
+                    repeat
+                        task.wait()
                         if auto_mon and closestModel and closestModel:FindFirstChild("Humanoid") and closestModel.Humanoid.Health > 0 then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetPosition
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation = Vector3.new(-90, 0, 0)
+                            local targetCFrame = closestModel.HumanoidRootPart.CFrame * CFrame.new(0, 3, 5)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetCFrame
                         else
                             break
                         end
-                    until false
+                    until auto_mon == false or closestModel.Humanoid.Health <= 0
                 else
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+                    game.Players.LocalPlayer.Character:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
                 end
             end)
         end
@@ -112,9 +112,10 @@ end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-     pcall(function()
-        if auto_mon == true then
-            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        pcall(function()
+            if auto_mon == true then
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             end
         end)
     end) 
