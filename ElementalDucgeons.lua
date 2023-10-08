@@ -26,16 +26,10 @@ Fluent:Notify({
     Duration = 5 -- Set to nil to make the notification not disappear
 })
 
-local Toggle_Box = Tabs.Main:AddToggle("auto_collect_box", { Title = "Auto Collect GEM!", Default = false })
 local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
 local Toggle_Potion = Tabs.Main:AddToggle("auto_use_potion", { Title = "AUTO USE POTIONS", Default = false })
 local Toggle_Retry = Tabs.Main:AddToggle("auto_retry", { Title = "AUTO Retry", Default = false })
-local Toggle_Collect = Tabs.Main:AddToggle("auto_collect", { Title = "AUTO COLLECT ITEM", Default = false})
 
-
-Toggle_Box:OnChanged(function()
-    auto_collect_box = Options.auto_collect_box.Value
-end)
 
 Toggle_Mon:OnChanged(function()
     auto_mon = Options.auto_mon.Value
@@ -47,10 +41,6 @@ end)
 
 Toggle_Retry:OnChanged(function()
     auto_retry = Options.auto_retry.Value
-end)
-
-Toggle_Collect:OnChanged(function()
-    auto_collect = Options.auto_collect.Value
 end)
 
 spawn(function()
@@ -104,12 +94,6 @@ spawn(function()
     end
 end)
 
-
-
-
-
-
-
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
@@ -153,19 +137,9 @@ spawn(function()
     end
 end)
 
--- spawn(function()
---     while wait() do
---         if auto_collect == true then
-            
---         end
---     end
--- end)
-
-Options.auto_collect_box:SetValue(false)
 Options.auto_mon:SetValue(false)
 Options.auto_use_potion:SetValue(false)
 Options.auto_retry:SetValue(false)
-Options.auto_collect:SetValue(false)
 
 -- ความห่างแยกต่าง ๆ ไปยังการตั้งค่าอื่น ๆ ที่เหลือ
 
