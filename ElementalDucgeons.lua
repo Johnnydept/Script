@@ -81,7 +81,7 @@ spawn(function()
                     end
                 end
 
-                if closestModel and closestModel.Humanoid.Health > 0 then
+                if closestModel then
                     repeat
                         task.wait()
                         if auto_mon and closestModel and closestModel:FindFirstChild("Humanoid") and closestModel.Humanoid.Health > 0 then
@@ -91,8 +91,6 @@ spawn(function()
                             break
                         end
                     until auto_mon == false or closestModel.Humanoid.Health <= 0
-                else
-                    game.Players.LocalPlayer.Character:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
                 end
             end)
         end
