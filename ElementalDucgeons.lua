@@ -101,6 +101,7 @@ spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if auto_mon == true then
+                game:GetService("ReplicatedStorage").ReplicatedStorage.Packages.Knit.Services.WeaponService.RF.EnchantedBlade:InvokeServer()
                 game:GetService'VirtualUser':CaptureController()
                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             end
