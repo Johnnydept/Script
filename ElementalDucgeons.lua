@@ -29,6 +29,7 @@ Fluent:Notify({
 local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
 local Toggle_Potion = Tabs.Main:AddToggle("auto_use_potion", { Title = "AUTO USE POTIONS", Default = false })
 local Toggle_Retry = Tabs.Main:AddToggle("auto_retry", { Title = "AUTO Retry", Default = false })
+local Toggle_KillAura = Tabs.Main:AddToggle("kill_aura", { Title = "KillAura", Default = false})
 
 
 Toggle_Mon:OnChanged(function()
@@ -43,6 +44,10 @@ Toggle_Retry:OnChanged(function()
     auto_retry = Options.auto_retry.Value
 end)
 
+Toggle_KillAura:OnChanged(function()
+    kill_aura = Options.kill_aura.Value
+end)
+
 spawn(function()
     while wait() do
         if auto_collect_box == true then
@@ -51,7 +56,7 @@ spawn(function()
                 local args = {
                     [1] = workspace:WaitForChild("Chests"):WaitForChild("Chest5")
                 }
-                
+
                 game:GetService("ReplicatedStorage").Knit.Services.MiscContentService.RF.ClaimChest:InvokeServer(unpack(args))
                 
             end
@@ -137,9 +142,25 @@ spawn(function()
     end
 end)
 
+spawn(function()
+    while wait() do
+        pcall(function()
+            if kill_aura == true then
+                for i, v in pairs(workspace.Mobs:GetChildren()) do
+                    if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        v.Humanoid.Health = die
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+
 Options.auto_mon:SetValue(false)
 Options.auto_use_potion:SetValue(false)
 Options.auto_retry:SetValue(false)
+Options.kill_aura:SetValue(false)
 
 -- ความห่างแยกต่าง ๆ ไปยังการตั้งค่าอื่น ๆ ที่เหลือ
 
