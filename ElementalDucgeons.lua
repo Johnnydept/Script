@@ -47,68 +47,58 @@ end)
 Toggle_KillAura:OnChanged(function()
     kill_aura = Options.kill_aura.Value
 end)
-
+    
 spawn(function()
-    while wait() do
-        if auto_collect_box == true then
-            for i, v in pairs(workspace.Chests:GetChildren()) do
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                local args = {
-                    [1] = workspace:WaitForChild("Chests"):WaitForChild("Chest5")
-                }
-
-                game:GetService("ReplicatedStorage").Knit.Services.MiscContentService.RF.ClaimChest:InvokeServer(unpack(args))
-                
-            end
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
+    repeat
+        wait() -- รอ 1 วินาที
         if auto_mon == true then
             pcall(function()
                 local closestModel = nil
                 local closestDistance = math.huge
+                local player = game.Players.LocalPlayer
                 
                 for i, v in pairs(workspace.Mobs:GetChildren()) do
                     if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                        local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude
-                        if distance < closestDistance then
-                            closestDistance = distance
-                            closestModel = v
+                        local mobRootPart = v.HumanoidRootPart
+                        local playerRootPart = player.Character:FindFirstChild("HumanoidRootPart")
+                        
+                        if mobRootPart and playerRootPart then
+                            local distance = (mobRootPart.Position - playerRootPart.Position).Magnitude
+                            
+                            if distance < closestDistance then
+                                closestModel = v
+                                closestDistance = distance
+                            end
                         end
                     end
                 end
 
                 if closestModel then
-                    repeat
-                        task.wait()
-                        if auto_mon and closestModel and closestModel:FindFirstChild("Humanoid") and closestModel.Humanoid.Health > 0 then
-                            local targetCFrame = closestModel.HumanoidRootPart.CFrame * CFrame.new(0, 3, 5)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetCFrame
-                        else
-                            break
-                        end
-                    until auto_mon == false or closestModel.Humanoid.Health <= 0
+                    local TweenService = game:GetService("TweenService")
+                    local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0)
+                    local targetCFrame = CFrame.new(closestModel.HumanoidRootPart.CFrame.p)
+                    local humanoidRootPart = player.Character:FindFirstChild("HumanoidRootPart")
+                    
+                    local tween = TweenService:Create(humanoidRootPart, tweenInfo, {CFrame = targetCFrame})
+                    tween:Play()
                 end
             end)
         end
-    end
+    until false -- ทำซ้ำตลอดไป (เนื่องจากเราใช้ "repeat...until false")
 end)
+
+
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if auto_mon == true then
-                game:GetService("ReplicatedStorage").ReplicatedStorage.Packages.Knit.Services.WeaponService.RF.EnchantedBlade:InvokeServer()
                 game:GetService'VirtualUser':CaptureController()
-                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))             
             end
         end)
     end) 
  end)
-
 
 spawn(function()
     while wait() do
@@ -119,7 +109,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while wait(1) do
+ while wait(1) do
         if auto_retry == true then
             local args = {
                 [1] = "Retry"
