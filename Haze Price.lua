@@ -26,13 +26,37 @@ Fluent:Notify({
     Duration = 5 -- Set to nil to make the notification not disappear
 })
 
+local TweenService = game:GetService("TweenService")
+local Weaponlist = {}
+local Weapon = nil
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+end
+
+local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
+    Title = "Dropdown",
+    Values = Weaponlist,
+    Multi = false,
+    Default = 1,
+})
+
+
 local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
+local Toggle_Equip = Tabs.Main:AddToggle("toggle_equip", { Title = "equip", Default = false })
+
+
+Dropdown:OnChanged(function(Value)
+    Weapon = Value
+end)
 
 Toggle_Mon:OnChanged(function()
     auto_mon = Options.auto_mon.Value
 end)
 
-local TweenService = game:GetService("TweenService")
+Toggle_Equip:OnChanged(function()
+    toggle_equip = Options.toggle_equip.Value
+end)
 
 function LevelCheck()
     local LevelPlayer = game:GetService("Players").LocalPlayer.PlayerData.Experience.Level.Value
@@ -52,7 +76,7 @@ function LevelCheck()
         QuestLevel = "Level 10"
         SpawnPointName = "Starter Island"
         SpawnPointPos = CFrame.new(-2185.06641, 44.5853271, -3240.38477, -0.999996662, 0, -0.00258965837, 0, 1, 0, 0.00258965837, 0, -0.999996662)
-    elseif Level == 24 or LevelPlayer <= 100 then
+    elseif Level == 24 or LevelPlayer <= 39 then
         MonName = "[Lv. 25] Bandit Boss"
         QuestNameMon = "Bandit Boss"
         QuestPos = CFrame.new(-2146.86938, 44.5099335, -3200.47681, -1, 0, 0, 0, 1, 0, 0, 0, -1)
@@ -104,17 +128,16 @@ spawn(function()
                                 if v.Humanoid.Health > 0 then
                                     repeat
                                         task.wait()
-                                        local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 8)
+                                        local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 9, 3)
                                         local TweenService = game:GetService("TweenService")
-                                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.111, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+                                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                                         {CFrame = targetCFrame}):Play()
-                                    until v.Humanoid.Health <= 0
+                                    until v.Humanoid.Health <= 0 or auto_mon == false
                                 end
                             end
                         end
                 
                     else
-                        local TweenService = game:GetService("TweenService")
                         local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                         {CFrame = QuestPos}):Play()
 
@@ -128,7 +151,6 @@ spawn(function()
                         game:GetService("Players").LocalPlayer.PlayerGui.QuestGui.QuestFunction:InvokeServer(unpack(args))
                     end
                 else
-                    local TweenService = game:GetService("TweenService")
                     local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                     {CFrame = SpawnPointPos}):Play()
 
@@ -145,7 +167,18 @@ spawn(function()
     end
 end)
 
-Options.auto_mon:SetValue(false)
+spawn(function()
+    while wait(1) do
+        if toggle_equip then
+            pcall(function()
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+            end)
+        end
+    end
+end)
+
+-- Options.auto_mon:SetValue(false)
+-- Options.toggle_equip:SetValue(false)
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
