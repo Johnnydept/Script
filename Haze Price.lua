@@ -14,6 +14,7 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Misc = Window:AddTab({ Title = "Misc", Icon = "" }), 
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -72,6 +73,11 @@ local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default
 local Toggle_Equip = Tabs.Main:AddToggle("toggle_equip", { Title = "Auto Equip", Default = false })
 local toggle_Buso = Tabs.Main:AddToggle("toggle_buso", { Title = "Auto Buso", Default = false })
 
+local Toggle_Status1 = Tabs.Misc:AddToggle("toggle_status1", { Title = "COMBAT", Default = false })
+local Toggle_Status2 = Tabs.Misc:AddToggle("toggle_status2", { Title = "DEFENSE", Default = false })
+local Toggle_Status3 = Tabs.Misc:AddToggle("toggle_status3", { Title = "SWORD", Default = false })
+local Toggle_Status4 = Tabs.Misc:AddToggle("toggle_status4", { Title = "FRUIT", Default = false })
+
 
 Dropdown:OnChanged(function(Value)
     Weapon = Value
@@ -87,6 +93,22 @@ end)
 
 toggle_Buso:OnChanged(function()
     toggle_buso = Options.toggle_buso.Value
+end)
+
+Toggle_Status1:OnChanged(function()
+    toggle_status1 = Options.toggle_status1.Value
+end)
+
+Toggle_Status2:OnChanged(function()
+    toggle_status2 = Options.toggle_status2.Value
+end)
+
+Toggle_Status3:OnChanged(function()
+    toggle_status3 = Options.toggle_status3.Value
+end)
+
+Toggle_Status4:OnChanged(function()
+    toggle_status4 = Options.toggle_status4.Value
 end)
 
 function LevelCheck()
@@ -210,7 +232,6 @@ function LevelCheck()
         QuestLevel = "Level 600"
         QuestPointName = "Marine Base Town"
         SpawnPointName = "Marine Base Town"
-    end
     elseif Level == 650 or LevelPlayer <= 699 then
         MonName = "[Lv. 650] Marine Captain"
         QuestNameMon = "Marine Captain"
@@ -218,7 +239,6 @@ function LevelCheck()
         QuestLevel = "Level 650"
         QuestPointName = "Marine Base Town"
         SpawnPointName = "Marine Base Town"
-    end
     elseif Level == 700 or LevelPlayer <= 749 then
         MonName = "[Lv. 700] Satyr"
         QuestNameMon = "Satyr"
@@ -226,7 +246,6 @@ function LevelCheck()
         QuestLevel = "Level 700"
         QuestPointName = "Three Islands"
         SpawnPointName = "Three Islands"
-    end
     elseif Level == 750 or LevelPlayer <= 799 then
         MonName = "[Lv. 750] Minotaur"
         QuestNameMon = "Minotaur"
@@ -234,7 +253,6 @@ function LevelCheck()
         QuestLevel = "Level 750"
         QuestPointName = "Three Islands"
         SpawnPointName = "Three Islands"
-    end
     elseif Level == 800 or LevelPlayer <= 849 then
         MonName = "[Lv. 800] Elite Marine"
         QuestNameMon = "Elite Marine"
@@ -242,7 +260,6 @@ function LevelCheck()
         QuestLevel = "Level 800"
         QuestPointName = "Marine HQ"
         SpawnPointName = "Marine HQ"
-    end
     elseif Level == 850 or LevelPlayer <= 899 then
         MonName = "[Lv. 850] Vice Admiral"
         QuestNameMon = "Vice Admiral"
@@ -250,7 +267,6 @@ function LevelCheck()
         QuestLevel = "Level 850"
         QuestPointName = "Marine HQ"
         SpawnPointName = "Marine HQ"
-    end
     elseif Level == 900 or LevelPlayer <= 949 then
         MonName = "[Lv. 900] Ice Admiral"
         QuestNameMon = "Ice Admiral"
@@ -327,7 +343,7 @@ end)
 
 spawn(function()
     while wait(1) do
-        if toggle_equip then
+        if toggle_equip == true then
             pcall(function()
                 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
             end)
@@ -337,7 +353,7 @@ end)
 
 spawn(function()
     while wait() do
-        if toggle_buso then
+        if toggle_buso == true then
             pcall(function()
                 if game.Players.LocalPlayer.Character.BusoEnabled.Value == false then
                     game:GetService("Players").LocalPlayer.Character.Buso_Server.Comunication:FireServer()
@@ -347,6 +363,65 @@ spawn(function()
     end
 end)
 
+spawn(function()
+    while wait() do
+        if toggle_status1 == true then
+            pcall(function()
+                local args = {
+                    [1] = "Combat",
+                    [2] = 1
+                }
+        
+            game:GetService("ReplicatedStorage").Replication.ClientEvents.Stats_Event:FireServer(unpack(args))    
+            end)
+        end  
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if toggle_status2 == true then
+            pcall(function()
+                local args = {
+                    [1] = "Defense",
+                    [2] = 1
+                }
+        
+            game:GetService("ReplicatedStorage").Replication.ClientEvents.Stats_Event:FireServer(unpack(args))    
+            end)
+        end  
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if toggle_status3 == true then
+            pcall(function()
+                local args = {
+                    [1] = "Sword",
+                    [2] = 1
+                }
+        
+            game:GetService("ReplicatedStorage").Replication.ClientEvents.Stats_Event:FireServer(unpack(args))    
+            end)
+        end  
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if toggle_status4 == true then
+            pcall(function()
+                local args = {
+                    [1] = "Fruit",
+                    [2] = 1
+                }
+        
+            game:GetService("ReplicatedStorage").Replication.ClientEvents.Stats_Event:FireServer(unpack(args))    
+            end)
+        end  
+    end
+end)
 
 
 -- Options.auto_mon:SetValue(false)
