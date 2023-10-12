@@ -203,8 +203,61 @@ function LevelCheck()
         QuestLevel = "Level 550"
         QuestPointName = "Tall Woods"
         SpawnPointName = "Tall Woods"
-    else
-        print("Not Found Level")
+    elseif Level == 600 or LevelPlayer <= 649 then
+        MonName = "[Lv. 600] Marine Grunt"
+        QuestNameMon = "Marine Grunt"
+        QuestName = "8"
+        QuestLevel = "Level 600"
+        QuestPointName = "Marine Base Town"
+        SpawnPointName = "Marine Base Town"
+    end
+    elseif Level == 650 or LevelPlayer <= 699 then
+        MonName = "[Lv. 650] Marine Captain"
+        QuestNameMon = "Marine Captain"
+        QuestName = "8"
+        QuestLevel = "Level 650"
+        QuestPointName = "Marine Base Town"
+        SpawnPointName = "Marine Base Town"
+    end
+    elseif Level == 700 or LevelPlayer <= 749 then
+        MonName = "[Lv. 700] Satyr"
+        QuestNameMon = "Satyr"
+        QuestName = "9"
+        QuestLevel = "Level 700"
+        QuestPointName = "Three Islands"
+        SpawnPointName = "Three Islands"
+    end
+    elseif Level == 750 or LevelPlayer <= 799 then
+        MonName = "[Lv. 750] Minotaur"
+        QuestNameMon = "Minotaur"
+        QuestName = "9"
+        QuestLevel = "Level 750"
+        QuestPointName = "Three Islands"
+        SpawnPointName = "Three Islands"
+    end
+    elseif Level == 800 or LevelPlayer <= 849 then
+        MonName = "[Lv. 800] Elite Marine"
+        QuestNameMon = "Elite Marine"
+        QuestName = "10"
+        QuestLevel = "Level 800"
+        QuestPointName = "Marine HQ"
+        SpawnPointName = "Marine HQ"
+    end
+    elseif Level == 850 or LevelPlayer <= 899 then
+        MonName = "[Lv. 850] Vice Admiral"
+        QuestNameMon = "Vice Admiral"
+        QuestName = "10"
+        QuestLevel = "Level 850"
+        QuestPointName = "Marine HQ"
+        SpawnPointName = "Marine HQ"
+    end
+    elseif Level == 900 or LevelPlayer <= 949 then
+        MonName = "[Lv. 900] Ice Admiral"
+        QuestNameMon = "Ice Admiral"
+        QuestName = "10"
+        QuestLevel = "Level 900"
+        QuestPointName = "Marine HQ"
+        SpawnPointName = "Marine HQ"
     end
 end
 
