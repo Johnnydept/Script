@@ -41,6 +41,32 @@ local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
     Default = 1,
 })
 
+Tabs.Main:AddButton({
+    Title = "Refresh",
+    Description = "Refresh Item",
+    Callback = function()
+        Window:Dialog({
+            Title = "Refresh Item",
+            Content = "This is a dialog",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                            table.insert(Weaponlist,v.Name)
+                        end
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
 
 local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
 local Toggle_Equip = Tabs.Main:AddToggle("toggle_equip", { Title = "equip", Default = false })
@@ -130,7 +156,7 @@ spawn(function()
                                         task.wait()
                                         local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 9, 3)
                                         local TweenService = game:GetService("TweenService")
-                                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+                                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                                         {CFrame = targetCFrame}):Play()
                                     until v.Humanoid.Health <= 0 or auto_mon == false
                                 end
@@ -138,10 +164,10 @@ spawn(function()
                         end
                 
                     else
-                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                         {CFrame = QuestPos}):Play()
 
-                        wait(1)
+                        wait(3)
                         
                         local args = {
                             [1] = workspace.Npc_Workspace.QuestGivers:FindFirstChild(QuestName),
