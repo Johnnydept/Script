@@ -42,20 +42,31 @@ local Dropdown = Tabs.Main:AddDropdown("Dropdown", {
     Default = 1,
 })
 
-Tabs.Main:AddButton({
-    Title = "Refresh",
-    Description = "Refresh Item",
+local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
+local Toggle_Equip = Tabs.Main:AddToggle("toggle_equip", { Title = "Auto Equip", Default = false })
+local toggle_Buso = Tabs.Main:AddToggle("toggle_buso", { Title = "Auto Buso", Default = false })
+
+local Toggle_Status1 = Tabs.Misc:AddToggle("toggle_status1", { Title = "COMBAT", Default = false })
+local Toggle_Status2 = Tabs.Misc:AddToggle("toggle_status2", { Title = "DEFENSE", Default = false })
+local Toggle_Status3 = Tabs.Misc:AddToggle("toggle_status3", { Title = "SWORD", Default = false })
+local Toggle_Status4 = Tabs.Misc:AddToggle("toggle_status4", { Title = "FRUIT", Default = false })
+
+Tabs.Misc:AddButton({
+    Title = "Buy Buso Haki 1",
+    Description = "Buy Haki",
     Callback = function()
         Window:Dialog({
-            Title = "Refresh Item",
-            Content = "This is a dialog",
+            Title = "Buy Buso Haki",
+            Content = "",
             Buttons = {
                 {
                     Title = "Confirm",
                     Callback = function()
-                        for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-                            table.insert(Weaponlist,v.Name)
-                        end
+                        local args = {
+                            [1] = workspace.Npc_Workspace.Buso:FindFirstChild("1")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.Buso:InvokeServer(unpack(args))                        
                     end
                 },
                 {
@@ -69,14 +80,291 @@ Tabs.Main:AddButton({
     end
 })
 
-local Toggle_Mon = Tabs.Main:AddToggle("auto_mon", { Title = "AutoFarm", Default = false })
-local Toggle_Equip = Tabs.Main:AddToggle("toggle_equip", { Title = "Auto Equip", Default = false })
-local toggle_Buso = Tabs.Main:AddToggle("toggle_buso", { Title = "Auto Buso", Default = false })
+Tabs.Misc:AddButton({
+    Title = "Buy Buso Haki 2",
+    Description = "Buy Haki",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Buso Haki",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace.Buso:FindFirstChild("2")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.Buso:InvokeServer(unpack(args))                        
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
 
-local Toggle_Status1 = Tabs.Misc:AddToggle("toggle_status1", { Title = "COMBAT", Default = false })
-local Toggle_Status2 = Tabs.Misc:AddToggle("toggle_status2", { Title = "DEFENSE", Default = false })
-local Toggle_Status3 = Tabs.Misc:AddToggle("toggle_status3", { Title = "SWORD", Default = false })
-local Toggle_Status4 = Tabs.Misc:AddToggle("toggle_status4", { Title = "FRUIT", Default = false })
+Tabs.Misc:AddButton({
+    Title = "Buy Observation Haki 1",
+    Description = "Buy Haki",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Observation Haki",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace.ObsHaki:FindFirstChild("1")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.ObsHaki:InvokeServer(unpack(args))
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Observation Haki 2",
+    Description = "Buy Haki",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Observation Haki",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace.ObsHaki:FindFirstChild("2")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.ObsHaki:InvokeServer(unpack(args))
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Geppo 1 2 3",
+    Description = "Buy Haki",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Geppo",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace.Geppo:FindFirstChild("Black Leg")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.Geppo:InvokeServer(unpack(args))
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Flash Step 1 2 3",
+    Description = "Buy Haki",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Flash Step",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.FlashStep:InvokeServer()
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Bisento",
+    Description = "Buy Sword",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Bisento",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace:FindFirstChild("Sword Sellers").Bisento
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.BuySword:InvokeServer(unpack(args))           
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Katana",
+    Description = "Buy Sword",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Katana",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace:FindFirstChild("Sword Sellers").Katana
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.BuySword:InvokeServer(unpack(args))           
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Operation Blade",
+    Description = "Buy Sword",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Operation Blade",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace:FindFirstChild("Sword Sellers"):FindFirstChild("Operation Blade")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.BuySword:InvokeServer(unpack(args))                                 
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Pipe",
+    Description = "Buy Sword",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Pipe",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace:FindFirstChild("Sword Sellers").Pipe
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.BuySword:InvokeServer(unpack(args))           
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Misc:AddButton({
+    Title = "Buy Soul Cane",
+    Description = "Buy Sword",
+    Callback = function()
+        Window:Dialog({
+            Title = "Buy Soul Cane",
+            Content = "",
+            Buttons = {
+                {
+                    Title = "Confirm",
+                    Callback = function()
+                        local args = {
+                            [1] = workspace.Npc_Workspace:FindFirstChild("Sword Sellers"):FindFirstChild("Soul Cane")
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Replication.ClientEvents.BuySword:InvokeServer(unpack(args))           
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.") 
+                    end
+                }
+            }
+        })
+    end
+})
 
 
 Dropdown:OnChanged(function(Value)
