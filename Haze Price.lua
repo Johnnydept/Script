@@ -316,19 +316,115 @@ function LevelCheck()
     elseif Level == 1050 or LevelPlayer <= 1099 then
         MonName = "[Lv. 1050] Holy Soldier"
         QuestNameMon = "Holy Soldier"
-        QuestName = "11"
+        QuestName = "12"
         QuestLevel = "Level 1050"
         QuestPointName = "Sky Islands"
         SpawnPointName = "Skypiean islands"
         SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
-    elseif Level == 1050 or LevelPlayer <= 1099 then
+    elseif Level == 1100 or LevelPlayer <= 1149 then
         MonName = "[Lv. 1100] Thunder God"
         QuestNameMon = "Thunder God"
-        QuestName = "11"
+        QuestName = "12"
         QuestLevel = "Level 1100"
         QuestPointName = "Sky Islands"
         SpawnPointName = "Skypiean islands"
         SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+    elseif Level == 1150 or LevelPlayer <= 1199 then
+        MonName = "[Lv. 1150] Revolutionary"
+        QuestNameMon = "Revolutionary"
+        QuestName = "13"
+        QuestLevel = "Level 1150"
+        QuestPointName = "Revolutionary Base"
+        SpawnPointName = "Revolutionary Base"
+        SpawnPointCFrame = CFrame.new(3717.85522, 34.9899597, 3952.95532, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+    elseif Level == 1200 or LevelPlayer <= 1249 then
+        MonName = "[Lv. 1200] Revolutionary Elite"
+        QuestNameMon = "Revolutionary Elite"
+        QuestName = "13"
+        QuestLevel = "Level 1200"
+        QuestPointName = "Revolutionary Base"
+        SpawnPointName = "Revolutionary Base"
+        SpawnPointCFrame = CFrame.new(3717.85522, 34.9899597, 3952.95532, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+    elseif Level == 1250 or LevelPlayer <= 1299 then
+        MonName = "[Lv. 1250] Revolutionary Boss"
+        QuestNameMon = "Revolutionary Boss"
+        QuestName = "13"
+        QuestLevel = "Level 1250"
+        QuestPointName = "Revolutionary Base"
+        SpawnPointName = "Revolutionary Base"
+        SpawnPointCFrame = CFrame.new(3717.85522, 34.9899597, 3952.95532, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+    elseif Level == 1300 or LevelPlayer <= 1349 then
+        MonName = "[Lv. 1300] Impel Guard"
+        QuestNameMon = "Impel Guard"
+        QuestName = "14"
+        QuestLevel = "Level 1300"
+        QuestPointName = "Impel Jail"
+        SpawnPointName = "Impel Jail"
+        SpawnPointCFrame = CFrame.new(3666.59668, 16.6548615, 6727.75049, 0.915973246, 0, 0.401239306, 0, 1, 0, -0.401239306, 0, 0.915973246)
+    elseif Level == 1350 or LevelPlayer <= 1399 then
+        MonName = "[Lv. 1350] Impel Elite"
+        QuestNameMon = "Impel Elite"
+        QuestName = "14"
+        QuestLevel = "Level 1350"
+        QuestPointName = "Impel Jail"
+        SpawnPointName = "Impel Jail"
+        SpawnPointCFrame = CFrame.new(3666.59668, 16.6548615, 6727.75049, 0.915973246, 0, 0.401239306, 0, 1, 0, -0.401239306, 0, 0.915973246)
+    elseif Level == 1400 or LevelPlayer <= 1449 then
+        MonName = "[Lv. 1400] Warden"
+        QuestNameMon = "Warden"
+        QuestName = "14"
+        QuestLevel = "Level 1400"
+        QuestPointName = "Impel Jail"
+        SpawnPointName = "Impel Jail"
+        SpawnPointCFrame = CFrame.new(3666.59668, 16.6548615, 6727.75049, 0.915973246, 0, 0.401239306, 0, 1, 0, -0.401239306, 0, 0.915973246)
+    elseif Level == 1450 or LevelPlayer <= 1499 then
+        MonName = "[Lv. 1450] Corrupt Marine"
+        QuestNameMon = "Corrupt Marine"
+        QuestName = "15"
+        QuestLevel = "Level 1450"
+        QuestPointName = "Cold Island"
+        SpawnPointName = "Half Hot Half Cold"
+        SpawnPointCFrame = CFrame.new(2624.12354, 16.9785881, -2546.47168, -0.999986172, 0, 0.00526562473, 0, 1, 0, -0.00526562473, 0, -0.999986172)
+    elseif Level == 1500 or LevelPlayer <= 1549 then
+        MonName = "[Lv. 1500] Vergo"
+        QuestNameMon = "Vergo"
+        QuestName = "15"
+        QuestLevel = "Level 1500"
+        QuestPointName = "Hot Island"
+        SpawnPointName = "Half Hot Half Cold"
+        SpawnPointCFrame = CFrame.new(2624.12354, 16.9785881, -2546.47168, -0.999986172, 0, 0.00526562473, 0, 1, 0, -0.00526562473, 0, -0.999986172)
+    elseif Level == 1550 or LevelPlayer <= 1599 then
+        MonName = "[Lv. 1550] Snow Harpy"
+        QuestNameMon = "Snow Harpy"
+        QuestName = "15"
+        QuestLevel = "Level 1550"
+        QuestPointName = "Half Cold"
+        SpawnPointName = "Half Hot Half Cold"
+        SpawnPointCFrame = CFrame.new(2624.12354, 16.9785881, -2546.47168, -0.999986172, 0, 0.00526562473, 0, 1, 0, -0.00526562473, 0, -0.999986172)
+    elseif Level == 1600 or LevelPlayer <= 1649 then
+        MonName = "[Lv. 1600] Island Fishman"
+        QuestNameMon = "Island Fishman"
+        QuestName = "16"
+        QuestLevel = "Level 1600"
+        QuestPointName = "Fishman Island"
+        SpawnPointName = "Fishman Island"
+        SpawnPointCFrame = CFrame.new(6704.11914, 11.6422453, -2622.5, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+    elseif Level == 1650 or LevelPlayer <= 1699 then
+        MonName = "[Lv. 1650] Fishman Elite"
+        QuestNameMon = "Fishman Elite"
+        QuestName = "16"
+        QuestLevel = "Level 1650"
+        QuestPointName = "Fishman Island"
+        SpawnPointName = "Fishman Island"
+        SpawnPointCFrame = CFrame.new(6704.11914, 11.6422453, -2622.5, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+    elseif Level == 1700 or LevelPlayer <= 1749 then
+        MonName = "[Lv. 1700] Neptune"
+        QuestNameMon = "Neptune"
+        QuestName = "16"
+        QuestLevel = "Level 1700"
+        QuestPointName = "Fishman Island"
+        SpawnPointName = "Fishman Island"
+        SpawnPointCFrame = CFrame.new(6704.11914, 11.6422453, -2622.5, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
     end
 end
 
@@ -355,8 +451,8 @@ spawn(function()
                                 repeat
                                     local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 9, 3)
                                     local TweenService = game:GetService("TweenService")
-                                    local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), { CFrame = targetCFrame }):Play()
-                                    wait(1)
+                                    local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), { CFrame = targetCFrame }):Play()
+                                    wait(2)
                                     Tw:Pause()
                                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
                                     wait(1)
@@ -404,6 +500,7 @@ spawn(function()
             pcall(function()
                 if game.Players.LocalPlayer.Character.BusoEnabled.Value == false then
                     game:GetService("Players").LocalPlayer.Character.Buso_Server.Comunication:FireServer()
+                elseif workspace.JohnnyDept5.ObservationHaki.Value == false then
                     game:GetService("Players").LocalPlayer.PlayerGui.ObservationHaki_Server.Comunication:FireServer()
                 end
             end)
