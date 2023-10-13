@@ -304,6 +304,11 @@ spawn(function()
                                         local TweenService = game:GetService("TweenService")
                                         local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
                                         {CFrame = targetCFrame}):Play()
+                                        task.wait(1)
+                                        Tw:Pause()
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                        task.wait(1)
+                                        Tw:Play()
                                     until v.Humanoid.Health <= 0 or auto_mon == false or game:GetService("Players").LocalPlayer.Quest.NPCName.Value ~= QuestNameMon
                                 end
                             end
@@ -357,6 +362,7 @@ spawn(function()
             pcall(function()
                 if game.Players.LocalPlayer.Character.BusoEnabled.Value == false then
                     game:GetService("Players").LocalPlayer.Character.Buso_Server.Comunication:FireServer()
+                    game:GetService("Players").LocalPlayer.PlayerGui.ObservationHaki_Server.Comunication:FireServer()
                 end
             end)
         end
