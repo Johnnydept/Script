@@ -120,6 +120,7 @@ function LevelCheck()
         QuestLevel = "Level 1"
         QuestPointName = "Starter Island"
         SpawnPointName = "Starter Island"
+        SpawnPointCFrame = CFrame.new(-2185.06641, 44.5853271, -3240.38477, -0.999996662, 0, -0.00258965837, 0, 1, 0, 0.00258965837, 0, -0.999996662)
     elseif Level == 10 or LevelPlayer <= 24 then
         MonName = "[Lv. 10] Bandit"
         QuestNameMon = "Bandit"
@@ -127,6 +128,7 @@ function LevelCheck()
         QuestLevel = "Level 10"
         QuestPointName = "Starter Island"
         SpawnPointName = "Starter Island"
+        SpawnPointCFrame = CFrame.new(-2185.06641, 44.5853271, -3240.38477, -0.999996662, 0, -0.00258965837, 0, 1, 0, 0.00258965837, 0, -0.999996662)
     elseif Level == 24 or LevelPlayer <= 39 then
         MonName = "[Lv. 25] Bandit Boss"
         QuestNameMon = "Bandit Boss"
@@ -134,6 +136,7 @@ function LevelCheck()
         QuestLevel = "Level 25"
         QuestPointName = "Starter Island"
         SpawnPointName = "Starter Island"
+        SpawnPointCFrame = CFrame.new(-2185.06641, 44.5853271, -3240.38477, -0.999996662, 0, -0.00258965837, 0, 1, 0, 0.00258965837, 0, -0.999996662)
     elseif Level == 40 or LevelPlayer <= 59 then
         MonName = "[Lv. 40] Pirate Clown"
         QuestNameMon = "Pirate Clown"
@@ -141,6 +144,7 @@ function LevelCheck()
         QuestLevel = "Level 40"
         QuestPointName = "Clown Island"
         SpawnPointName = "Clown Island"
+        SpawnPointCFrame = CFrame.new(-2173.27515, 14.5428219, -611.056152, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     elseif Level == 60 or LevelPlayer <= 89 then
         MonName = "[Lv. 60] Clown Boss"
         QuestNameMon = "Clown Boss"
@@ -148,6 +152,7 @@ function LevelCheck()
         QuestLevel = "Level 60"
         QuestPointName = "Clown Island"
         SpawnPointName = "Clown Island"
+        SpawnPointCFrame = CFrame.new(-2173.27515, 14.5428219, -611.056152, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     elseif Level == 90 or LevelPlayer <= 119 then
         MonName = "[Lv. 90] Fishman"
         QuestNameMon = "Fishman"
@@ -155,6 +160,7 @@ function LevelCheck()
         QuestLevel = "Level 90"
         QuestPointName = "Shark Park"
         SpawnPointName = "Shark Park"
+        SpawnPointCFrame = CFrame.new(-4903.91309, 17.8224983, -2819.60059, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     elseif Level == 120 or LevelPlayer <= 159 then
         MonName = "[Lv. 120] Shark Boss"
         QuestNameMon = "Shark Boss"
@@ -162,6 +168,7 @@ function LevelCheck()
         QuestLevel = "Level 120"
         QuestPointName = "Shark Park"
         SpawnPointName = "Shark Park"
+        SpawnPointCFrame = CFrame.new(-4903.91309, 17.8224983, -2819.60059, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     elseif Level == 160 or LevelPlayer <= 199 then
         MonName = "[Lv. 160] Desert Thief"
         QuestNameMon = "Desert Thief"
@@ -169,6 +176,7 @@ function LevelCheck()
         QuestLevel = "Level 160"
         QuestPointName = "Desert Ruins"
         SpawnPointName = "Desert Ruins"
+        SpawnPointCFrame = CFrame.new(-5274.35449, 31.5086288, -687.57074, -0.0707290173, 0, -0.997495532, 0, 1, 0, 0.997495532, 0, -0.0707290173)
     elseif Level == 200 or LevelPlayer <= 249 then
         MonName = "[Lv. 200] Bomb Boss"
         QuestNameMon = "Bomb Boss"
@@ -176,6 +184,7 @@ function LevelCheck()
         QuestLevel = "Level 200"
         QuestPointName = "Desert Ruins"
         SpawnPointName = "Desert Ruins"
+        SpawnPointCFrame = CFrame.new(-5274.35449, 31.5086288, -687.57074, -0.0707290173, 0, -0.997495532, 0, 1, 0, 0.997495532, 0, -0.0707290173)
     elseif Level == 250 or LevelPlayer <= 299 then
         MonName = "[Lv. 250] Krieg Pirate"
         QuestNameMon = "Krieg Pirate"
@@ -183,6 +192,7 @@ function LevelCheck()
         QuestLevel = "Level 250"
         QuestPointName = "Sea Restaurant"
         SpawnPointName = "Sea Restaurant"
+        SpawnPointCFrame = CFrame.new(-5971.75977, 54.3716469, 2411.17163, 0.997494817, -0, -0.0707397014, 0, 1, -0, 0.0707397014, 0, 0.997494817)
     elseif Level == 300 or LevelPlayer <= 349 then
         MonName = "[Lv. 300] Krieg Boss"
         QuestNameMon = "Krieg Boss"
@@ -190,6 +200,7 @@ function LevelCheck()
         QuestLevel = "Level 300"
         QuestPointName = "Sea Restaurant"
         SpawnPointName = "Sea Restaurant"
+        SpawnPointCFrame = CFrame.new(-5971.75977, 54.3716469, 2411.17163, 0.997494817, -0, -0.0707397014, 0, 1, -0, 0.0707397014, 0, 0.997494817)
     elseif Level == 350 or LevelPlayer <= 399 then
         MonName = "[Lv. 350] Marine Recruit"
         QuestNameMon = "Marine Recruit"
@@ -197,6 +208,7 @@ function LevelCheck()
         QuestLevel = "Level 350"
         QuestPointName = "Logue Town"
         SpawnPointName = "Logue City"
+        SpawnPointCFrame = CFrame.new(-2859.67896, 18.2439308, 1917.31714, -1, 0, 0, 0, 1, 0, 0, 0, -1)
     elseif Level == 400 or LevelPlayer <= 449 then
         MonName = "[Lv. 400] Tashii"
         QuestNameMon = "Tashii"
@@ -204,6 +216,7 @@ function LevelCheck()
         QuestLevel = "Level 400"
         QuestPointName = "Logue Town"
         SpawnPointName = "Logue City"
+        SpawnPointCFrame = CFrame.new(-2859.67896, 18.2439308, 1917.31714, -1, 0, 0, 0, 1, 0, 0, 0, -1)
     elseif Level == 450 or LevelPlayer <= 499 then
         MonName = "[Lv. 450] Monkey"
         QuestNameMon = "Monkey"
@@ -211,6 +224,7 @@ function LevelCheck()
         QuestLevel = "Level 450"
         QuestPointName = "Tall Woods"
         SpawnPointName = "Tall Woods"
+        SpawnPointCFrame = CFrame.new(50.8025665, 10.2842579, 2298.3938, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
     elseif Level == 500 or LevelPlayer <= 549 then
         MonName = "[Lv. 500] Gorilla"
         QuestNameMon = "Gorilla"
@@ -218,6 +232,7 @@ function LevelCheck()
         QuestLevel = "Level 500"
         QuestPointName = "Tall Woods"
         SpawnPointName = "Tall Woods"
+        SpawnPointCFrame = CFrame.new(50.8025665, 10.2842579, 2298.3938, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
     elseif Level == 550 or LevelPlayer <= 599 then
         MonName = "[Lv. 550] King Gorilla"
         QuestNameMon = "King Gorilla"
@@ -225,6 +240,7 @@ function LevelCheck()
         QuestLevel = "Level 550"
         QuestPointName = "Tall Woods"
         SpawnPointName = "Tall Woods"
+        SpawnPointCFrame = CFrame.new(50.8025665, 10.2842579, 2298.3938, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
     elseif Level == 600 or LevelPlayer <= 649 then
         MonName = "[Lv. 600] Marine Grunt"
         QuestNameMon = "Marine Grunt"
@@ -232,6 +248,7 @@ function LevelCheck()
         QuestLevel = "Level 600"
         QuestPointName = "Marine Base Town"
         SpawnPointName = "Marine Base Town"
+        SpawnPointCFrame = CFrame.new(558.204773, 101.526405, 5675.91992, 0, 0, 1, 0, 1, -0, -1, 0, 0)
     elseif Level == 650 or LevelPlayer <= 699 then
         MonName = "[Lv. 650] Marine Captain"
         QuestNameMon = "Marine Captain"
@@ -239,6 +256,7 @@ function LevelCheck()
         QuestLevel = "Level 650"
         QuestPointName = "Marine Base Town"
         SpawnPointName = "Marine Base Town"
+        SpawnPointCFrame = CFrame.new(558.204773, 101.526405, 5675.91992, 0, 0, 1, 0, 1, -0, -1, 0, 0)
     elseif Level == 700 or LevelPlayer <= 749 then
         MonName = "[Lv. 700] Satyr"
         QuestNameMon = "Satyr"
@@ -246,6 +264,7 @@ function LevelCheck()
         QuestLevel = "Level 700"
         QuestPointName = "Three Islands"
         SpawnPointName = "Three Islands"
+        SpawnPointCFrame = CFrame.new(-2404.46973, 785.804443, 5551.69092, -0.258864403, 0, -0.965913713, 0, 1, 0, 0.965913713, 0, -0.258864403)
     elseif Level == 750 or LevelPlayer <= 799 then
         MonName = "[Lv. 750] Minotaur"
         QuestNameMon = "Minotaur"
@@ -253,6 +272,7 @@ function LevelCheck()
         QuestLevel = "Level 750"
         QuestPointName = "Three Islands"
         SpawnPointName = "Three Islands"
+        SpawnPointCFrame = CFrame.new(-2404.46973, 785.804443, 5551.69092, -0.258864403, 0, -0.965913713, 0, 1, 0, 0.965913713, 0, -0.258864403)
     elseif Level == 800 or LevelPlayer <= 849 then
         MonName = "[Lv. 800] Elite Marine"
         QuestNameMon = "Elite Marine"
@@ -260,6 +280,7 @@ function LevelCheck()
         QuestLevel = "Level 800"
         QuestPointName = "Marine HQ"
         SpawnPointName = "Marine HQ"
+        SpawnPointCFrame = CFrame.new(-6152.62256, 19.4142094, 6881.06055, 0.673309922, 0, 0.739360392, 0, 1, 0, -0.739360392, 0, 0.673309922)
     elseif Level == 850 or LevelPlayer <= 899 then
         MonName = "[Lv. 850] Vice Admiral"
         QuestNameMon = "Vice Admiral"
@@ -267,6 +288,7 @@ function LevelCheck()
         QuestLevel = "Level 850"
         QuestPointName = "Marine HQ"
         SpawnPointName = "Marine HQ"
+        SpawnPointCFrame = CFrame.new(-6152.62256, 19.4142094, 6881.06055, 0.673309922, 0, 0.739360392, 0, 1, 0, -0.739360392, 0, 0.673309922)
     elseif Level == 900 or LevelPlayer <= 949 then
         MonName = "[Lv. 900] Ice Admiral"
         QuestNameMon = "Ice Admiral"
@@ -274,6 +296,39 @@ function LevelCheck()
         QuestLevel = "Level 900"
         QuestPointName = "Marine HQ"
         SpawnPointName = "Marine HQ"
+        SpawnPointCFrame = CFrame.new(-6152.62256, 19.4142094, 6881.06055, 0.673309922, 0, 0.739360392, 0, 1, 0, -0.739360392, 0, 0.673309922)
+    elseif Level == 950 or LevelPlayer <= 999 then
+        MonName = "[Lv. 950] Sandorian Warrior"
+        QuestNameMon = "Sandorian Warrior"
+        QuestName = "11"
+        QuestLevel = "Level 950"
+        QuestPointName = "Sky Islands"
+        SpawnPointName = "Skypiean islands"
+        SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+    elseif Level == 1000 or LevelPlayer <= 1049 then
+        MonName = "[Lv. 1000] Divine Soldier"
+        QuestNameMon = "Divine Soldier"
+        QuestName = "11"
+        QuestLevel = "Level 1000"
+        QuestPointName = "Sky Islands"
+        SpawnPointName = "Skypiean islands"
+        SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+    elseif Level == 1050 or LevelPlayer <= 1099 then
+        MonName = "[Lv. 1050] Holy Soldier"
+        QuestNameMon = "Holy Soldier"
+        QuestName = "11"
+        QuestLevel = "Level 1050"
+        QuestPointName = "Sky Islands"
+        SpawnPointName = "Skypiean islands"
+        SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+    elseif Level == 1050 or LevelPlayer <= 1099 then
+        MonName = "[Lv. 1100] Thunder God"
+        QuestNameMon = "Thunder God"
+        QuestName = "11"
+        QuestLevel = "Level 1100"
+        QuestPointName = "Sky Islands"
+        SpawnPointName = "Skypiean islands"
+        SpawnPointCFrame = CFrame.new(2661.65283, 1103.81616, 95.6491699, -1, 0, 0, 0, 1, 0, 0, 0, -1)
     end
 end
 
@@ -288,63 +343,50 @@ spawn(function()
     end) 
  end)
 
-spawn(function()
+ spawn(function()
     while wait() do
         if auto_mon == true then
             pcall(function()
                 LevelCheck()
                 if game:GetService("Players").LocalPlayer.PlayerData.SpawnPoint.Value == SpawnPointName then
                     if game:GetService("Players").LocalPlayer.Quest.NPCName.Value == QuestNameMon then
-                        for i,v in pairs(workspace["NPC Zones"][QuestPointName].NPCS:GetChildren()) do
-                            if v.Humanoid.DisplayName == MonName then
-                                if v.Humanoid.Health > 0 then
-                                    repeat
-                                        task.wait()
-                                        local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 9, 3)
-                                        local TweenService = game:GetService("TweenService")
-                                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-                                        {CFrame = targetCFrame}):Play()
-                                        task.wait(1)
-                                        Tw:Pause()
-                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                                        task.wait(1)
-                                        Tw:Play()
-                                    until v.Humanoid.Health <= 0 or auto_mon == false or game:GetService("Players").LocalPlayer.Quest.NPCName.Value ~= QuestNameMon
-                                end
+                        for i, v in pairs(workspace["NPC Zones"][QuestPointName].NPCS:GetChildren()) do
+                            if v.Humanoid.DisplayName == MonName and v.Humanoid.Health > 0 then
+                                repeat
+                                    local targetCFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 9, 3)
+                                    local TweenService = game:GetService("TweenService")
+                                    local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), { CFrame = targetCFrame }):Play()
+                                    wait(1)
+                                    Tw:Pause()
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                    wait(1)
+                                    Tw:Play()
+                                until v.Humanoid.Health <= 0 or not auto_mon or game:GetService("Players").LocalPlayer.Quest.NPCName.Value ~= QuestNameMon
                             end
                         end
-                
                     else
                         local QuestPos = workspace.Npc_Workspace.QuestGivers[QuestName].Clicker.CFrame
-                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-                        {CFrame = QuestPos}):Play()
-
+                        local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), { CFrame = QuestPos }):Play()
                         wait(3)
-                        
                         local args = {
                             [1] = workspace.Npc_Workspace.QuestGivers:FindFirstChild(QuestName),
                             [2] = QuestLevel
                         }
-                        
                         game:GetService("Players").LocalPlayer.PlayerGui.QuestGui.QuestFunction:InvokeServer(unpack(args))
                     end
                 else
-                    local SpawnPointPosCFrame = workspace.Npc_Workspace["Spawn Setters"][SpawnPointName].Clicker.CFrame
-                    local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-                    {CFrame = SpawnPointPosCFrame}):Play()
-
-                    wait(3)
-
+                    local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(20, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), { CFrame = SpawnPointCFrame }):Play()
+                    wait(20)
                     local args = {
                         [1] = SpawnPointName
                     }
-                    
                     game:GetService("ReplicatedStorage").Replication.ClientEvents.SetSpawnPoint:FireServer(unpack(args))
                 end
             end)
         end
     end
 end)
+
 
 spawn(function()
     while wait(1) do
